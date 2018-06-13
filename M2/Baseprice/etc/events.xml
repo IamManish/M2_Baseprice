@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+
+	<event name="checkout_cart_product_add_after">
+		<observer name="m2_baseprice_observer_additemprice" instance="M2\Baseprice\Observer\Additemprice" />
+	</event>
+
+	<event name="checkout_cart_update_items_after">
+		<observer name="m2_baseprice_observer_updateitemprices"
+			instance="M2\Baseprice\Observer\Updateitemprices" />
+	</event>
+
+	<event name="checkout_cart_update_item_complete">
+		<observer name="m2_baseprice_observer_custompriceupdate"
+			instance="M2\Baseprice\Observer\Custompriceupdate" />
+	</event>
+	<event name="sales_quote_item_qty_set_after">
+		<observer name="m2_baseprice_observer_setqtyitem" instance="M2\Baseprice\Observer\Setqtyitem" />
+	</event>
+	<event name="sales_order_save_before">
+		<observer name="m2_baseprice_observer_sales_order_save_before"
+			instance="M2\Baseprice\Observer\SalesOrderBeforeSaveObserver" />
+	</event>
+</config>
